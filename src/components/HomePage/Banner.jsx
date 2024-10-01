@@ -19,6 +19,7 @@ import banner43 from "../../assets/banner4.3.png";
 import custom from "../../assets/custom.png";
 function Banner() {
   let sliderRef = useRef(null);
+  console.log(sliderRef);
 
   const settings = {
     dots: true,

@@ -1,5 +1,6 @@
+import PropTypes from "prop-types";
 import custom from "../assets/custom.png";
-function CustomButton({ title, bgColor, txColor, link }) {
+function CustomButton({ title, bgColor, txColor }) {
   return (
     <div>
       <div
@@ -11,5 +12,10 @@ function CustomButton({ title, bgColor, txColor, link }) {
     </div>
   );
 }
+CustomButton.propTypes = {
+  title: PropTypes.string.isRequired,
+  bgColor: PropTypes.string.isRequired,
+  txColor: PropTypes.string.isRequired,
+};
 
 export default CustomButton;

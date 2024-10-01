@@ -83,7 +83,7 @@ const Clubhouse = () => {
                 <p className="font-thin">
                   Great purchase! Emails kept me in the know of what stage the
                   glove was in and when it shipped. Great options to choose from
-                  and glove is great quality leather! You absolutely can't beat
+                  and glove is great quality leather! You absolutely cant beat
                   the price for this quality of glove!
                 </p>
               </div>
