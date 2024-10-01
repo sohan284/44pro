@@ -6,3 +6,22 @@
   font-family: "Changa", sans-serif;
   font-weight: 400;
 }
+.slick-dots {
+  bottom: 10px; 
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+
+.slick-dots li button:before {
+  font-size: 8px;
+  color: white; 
+}
+
+.slick-dots li.slick-active button:before {
+  color: white; 
+}
+
+.relative {
+  position: relative;
+}
