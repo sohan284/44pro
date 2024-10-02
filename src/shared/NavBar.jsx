@@ -7,9 +7,13 @@ import logo from "../assets/logo.svg";
 import { Divider } from "@mui/material";
 import CustomDropdown from "./CustomDropdown";
 import custom from "../assets/custom.png";
+import { useNavigate } from "react-router-dom";
 function NavBar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  const navigate = useNavigate();
+  const handleNavigate = (route) => {
+    navigate(route);
+  };
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
@@ -31,36 +35,51 @@ function NavBar() {
               }
             }
           >
-            <img className="ml-10" src={logo} />
+            <img
+              onClick={() => handleNavigate("/")}
+              className="h-12"
+              src={logo}
+            />
           </Typography>
-          <div className="w-full ml-10 hidden lg:flex text-[15px]">
+          <div className="w-full ml-10 hidden  xl:flex text-[18px]">
             <div className="flex mt-2">
               <CustomDropdown />
-              <p className="text-black m-2 cursor-pointer">Stock Products</p>
-              <p className="text-black m-2 cursor-pointer">Trending Designs</p>
-              <p className="text-black m-2 cursor-pointer">Team 44</p>
-              <p className="text-black m-2 cursor-pointer">Help Center</p>
+              <p className="text-black m-2 mx-4 cursor-pointer">
+                Stock Products
+              </p>
+              <p className="text-black m-2 mx-4 cursor-pointer">
+                Trending Designs
+              </p>
+              <p className="text-black m-2 mx-4 cursor-pointer">Team 44</p>
+              <p className="text-black m-2 mx-4 cursor-pointer">Help Center</p>
             </div>
-            <p className="m-2 p-2 px-4 flex bg-zinc-800 hover:bg-zinc-600 text-white cursor-pointer rounded-md text-[15px]">
+            <p
+              onClick={() => handleNavigate("/builder")}
+              className="m-2 p-2 px-4 flex bg-zinc-800 hover:bg-zinc-600 text-white cursor-pointer rounded-md text-[15px]"
+            >
               <img className="w-5 h-5" src={custom} alt="" /> Custom Builder
             </p>
           </div>
 
           <div className="flex">
-            <p className="text-black m-2 cursor-pointer">Login/Register</p>
+            <p className="text-black text-[18px] m-2 cursor-pointer xl:block hidden">
+              Login/Register
+            </p>
 
-            <IconButton
-              color="black"
-              aria-label="open drawer"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: "none" } }}
-            >
-              {mobileOpen ? <CloseIcon /> : <MenuIcon />}
-            </IconButton>
+            <div className=" xl:hidden">
+              <IconButton
+                color="black"
+                aria-label="open drawer"
+                onClick={handleDrawerToggle}
+                sx={{ mr: 2 }}
+              >
+                {mobileOpen ? <CloseIcon /> : <MenuIcon />}
+              </IconButton>
+            </div>
           </div>
         </div>
         {mobileOpen && (
-          <div className="w-full  lg:hidden text-[15px] flex-col">
+          <div className="w-full xl:hidden text-[15px] flex-col">
             <div className="flex ml-5 flex-col mt-2">
               <p className="text-black m-2 cursor-pointer">Custom Crafted</p>
               <p className="text-black m-2 cursor-pointer">Stock Products</p>
@@ -68,7 +87,10 @@ function NavBar() {
               <p className="text-black m-2 cursor-pointer">Team 44</p>
               <p className="text-black m-2 cursor-pointer">Help Center</p>
             </div>
-            <p className="m-2 p-2 w-[150px] ml-5 px-4 mb-5 bg-zinc-800 hover:bg-zinc-600 text-white cursor-pointer rounded-md text-[15px]">
+            <p
+              onClick={() => handleNavigate("/builder")}
+              className="m-2 p-2 w-[150px] ml-5 px-4 mb-5 bg-zinc-800 hover:bg-zinc-600 text-white cursor-pointer rounded-md text-[15px]"
+            >
               Custom Builder
             </p>
             <Divider />
