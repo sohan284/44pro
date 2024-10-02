@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { IoIosStar } from "react-icons/io";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-
+import redLine from "../../assets/redLine.svg";
 const Clubhouse = () => {
   const swiperRef = useRef(null);
   const [isBeginning, setIsBeginning] = useState(true);
@@ -15,7 +15,14 @@ const Clubhouse = () => {
         <div>
           <p>From The Clubhouse</p>
           <div className="flex justify-between mb-10">
-            <p className="text-5xl my-3 font-bold">What Players Are Saying</p>
+            <p className="text-5xl my-3 font-bold flex justify-center">
+              What
+              <div className="flex mx-5 flex-col justify-center">
+                <p>Players </p>
+                <img className="w-[160px]" src={redLine} alt="" />
+              </div>
+              Are Saying
+            </p>
             <div className="mb-4">
               <button
                 onClick={() => swiperRef.current?.slidePrev()}

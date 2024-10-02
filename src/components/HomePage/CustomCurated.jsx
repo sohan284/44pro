@@ -14,7 +14,7 @@ import curated7 from "../../assets/curated7.png";
 import curated8 from "../../assets/curated8.png";
 import curated9 from "../../assets/curated9.png";
 import CustomButton from "../../shared/CustomButton";
-
+import redLine from "../../assets/redLine.svg";
 const CustomCurated = () => {
   const swiperRef = useRef(null);
   const [isBeginning, setIsBeginning] = useState(true);
@@ -39,15 +39,21 @@ const CustomCurated = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        paddingBlock: "40px",
+        // paddingBlock: "40px",
       }}
-      className="my-20 py-10 px-2"
+      className="mt-20 py-20 px-2"
     >
       <div className="container mx-auto">
         <div>
           <p>Custom Curated</p>
           <div className="flex justify-between mb-10">
-            <p className="text-5xl my-3 font-bold">Trending Collection</p>
+            <p className="text-5xl my-3 font-bold flex justify-center">
+              <div className="flex mr-5 flex-col justify-center">
+                <p>Trending </p>
+                <img className="w-[200px]" src={redLine} alt="" />
+              </div>
+              Collection
+            </p>
             <div className="mb-4">
               <button
                 onClick={() => swiperRef.current?.slidePrev()}
