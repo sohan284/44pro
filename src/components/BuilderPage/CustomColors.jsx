@@ -24,7 +24,7 @@ const CustomColors = ({ handleColor }) => {
     { name: "Lightgreen", value: "lightgreen" },
   ];
   return (
-    <div className="grid grid-cols-5 gap-5 px-10 mb-10 pb-5 shadow-lg">
+    <div className="grid bg-white grid-cols-5 gap-5 px-10 pt-5 mb-10 pb-5 shadow-lg">
       {colors.map(({ name, value }) => (
         <div
           key={name}
