@@ -1,7 +1,6 @@
 import builderGloves from "../../assets/builderGloves.png";
 import builderBGloves from "../../assets/builderBGloves.png";
 import builderBat from "../../assets/builderBat.png";
-import GlovesSVG from "./GlovesSVG";
 const CustomBuilder = () => {
   return (
     <div className="py-10">
@@ -38,7 +37,6 @@ const CustomBuilder = () => {
           </div>
         </div>
       </div>
-      <GlovesSVG />
     </div>
   );
 };

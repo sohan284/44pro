@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BuilderPage from "./pages/BuilderPage";
-import CustomGloves from "./pages/CustomGloves";
+import CustomGloves from "./components/BuilderPage/CustomGloves/CustomGloves";
 function App() {
   return (
     <Routes>
