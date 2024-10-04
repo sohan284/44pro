@@ -47,8 +47,8 @@ const CustomCurated = () => {
         <div>
           <p>Custom Curated</p>
           <div className="flex justify-between mb-10">
-            <p className="text-5xl my-3 font-bold flex justify-center">
-              <div className="flex mr-5 flex-col justify-center">
+            <p className="text-5xl flex-wrap my-3 font-bold flex justify-center">
+              <div className="flex  mr-5 flex-col justify-center">
                 <p>Trending </p>
                 <img className="w-[200px]" src={redLine} alt="" />
               </div>
@@ -57,7 +57,7 @@ const CustomCurated = () => {
             <div className="mb-4">
               <button
                 onClick={() => swiperRef.current?.slidePrev()}
-                className={`p-4 mr-2 ${
+                className={`p-4 m-1 ${
                   isBeginning ? "bg-red-300" : "bg-red-600"
                 } text-white rounded transition-opacity`}
                 disabled={isBeginning}
@@ -66,7 +66,7 @@ const CustomCurated = () => {
               </button>
               <button
                 onClick={() => swiperRef.current?.slideNext()}
-                className={`p-4 ${
+                className={`p-4 m-1 ${
                   isEnd ? "bg-red-300" : "bg-red-600"
                 } text-white rounded transition-opacity`}
                 disabled={isEnd}

@@ -14,8 +14,8 @@ const Clubhouse = () => {
       <div className="container mx-auto">
         <div>
           <p>From The Clubhouse</p>
-          <div className="flex justify-between mb-10">
-            <p className="text-5xl my-3 font-bold flex justify-center">
+          <div className="flex  justify-between mb-10">
+            <p className="text-5xl flex-wrap my-3 font-bold flex justify-center">
               What
               <div className="flex mx-5 flex-col justify-center">
                 <p>Players </p>
@@ -26,7 +26,7 @@ const Clubhouse = () => {
             <div className="mb-4">
               <button
                 onClick={() => swiperRef.current?.slidePrev()}
-                className={`p-4 mr-2 ${
+                className={`p-4 m-1 ${
                   isBeginning ? "bg-red-300" : "bg-red-600"
                 } text-white rounded transition-opacity`}
                 disabled={isBeginning}
@@ -35,7 +35,7 @@ const Clubhouse = () => {
               </button>
               <button
                 onClick={() => swiperRef.current?.slideNext()}
-                className={`p-4 ${
+                className={`p-4 m-1 ${
                   isEnd ? "bg-red-300" : "bg-red-600"
                 } text-white rounded transition-opacity`}
                 disabled={isEnd}

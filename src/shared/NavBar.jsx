@@ -9,6 +9,7 @@ import CustomDropdown from "./CustomDropdown";
 import custom from "../assets/custom.png";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import { IoCart } from "react-icons/io5";
 function NavBar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ function NavBar() {
           >
             <img
               onClick={() => handleNavigate("/")}
-              className="h-12"
+              className="h-10 px-5"
               src={logo}
             />
           </Typography>
@@ -73,6 +74,14 @@ function NavBar() {
           </div>
 
           <div className="flex">
+            <IoCart
+              style={{
+                fontSize: "32px",
+                margin: "8px",
+                marginRight: "12px",
+                color: "#333333",
+              }}
+            />
             <p className="text-black text-[18px] m-2 cursor-pointer xl:block hidden">
               Login/Register
             </p>
@@ -84,7 +93,11 @@ function NavBar() {
                 onClick={handleDrawerToggle}
                 sx={{ mr: 2 }}
               >
-                {mobileOpen ? <CloseIcon /> : <MenuIcon />}
+                {mobileOpen ? (
+                  <CloseIcon style={{ fontSize: "32px" }} />
+                ) : (
+                  <MenuIcon style={{ fontSize: "32px" }} />
+                )}
               </IconButton>
             </div>
           </div>

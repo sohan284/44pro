@@ -6,7 +6,7 @@ function CustomSince() {
     <div className="container mx-auto mt-20  text-center mb-20">
       <div className="flex flex-col">
         <p>Always Custom Since 2011</p>
-        <p className="text-5xl my-3 font-bold flex justify-center">
+        <p className="text-5xl my-3 flex-wrap font-bold flex justify-center">
           Over{" "}
           <div className="flex mx-5 flex-col justify-center">
             <p> 500,000 </p>
