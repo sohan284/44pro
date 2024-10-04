@@ -29,6 +29,7 @@ const CustomGloves = () => {
   });
 
   const [activeTab, setActiveTab] = useState("colors");
+  const [selectedSize, setSelectedSize] = useState("");
 
   const handleColor = (part, value) => {
     setColor((prevColor) => ({
@@ -43,7 +44,6 @@ const CustomGloves = () => {
     setIsEnd(swiper.isEnd);
   };
 
-  // Define an array for the parts of the glove
   const gloveParts = [
     { name: "LEATHER 1", key: "lather1" },
     { name: "LEATHER 2", key: "lather2" },
@@ -61,8 +61,12 @@ const CustomGloves = () => {
     { name: "LACES", key: "laces" },
   ];
 
-  // Define sizes
-  const sizes = ["Small", "Medium", "Large", "Extra Large"];
+  // Define the specific sizes for radio buttons
+  const sizes = ['11"', '11.5"', '12"', '14"'];
+
+  const handleSizeChange = (size) => {
+    setSelectedSize(size);
+  };
 
   return (
     <div>
@@ -72,8 +76,7 @@ const CustomGloves = () => {
           <GlovesSVG color={color} />
         </div>
         <div className="col-span-1 mt-5">
-          {/* Tabs for Color and Size */}
-          <div className="grid grid-cols-3  mt-4">
+          <div className="grid grid-cols-3 mt-4">
             <button
               onClick={() => setActiveTab("sizes")}
               className={`lg:p-6 p-2 text-start shadow-sm shadow-black ${
@@ -95,8 +98,8 @@ const CustomGloves = () => {
               Colors
             </button>
             <button
-              onClick={() => setActiveTab("sizes")}
-              className={`lg:p-6 p-2 text-start shadow-sm shadow-black  ${
+              onClick={() => setActiveTab("personalize")}
+              className={`lg:p-6 p-2 text-start shadow-sm shadow-black ${
                 activeTab === "personalize"
                   ? "bg-[#ffa959]"
                   : "bg-zinc-300 hover:bg-zinc-400"
@@ -105,29 +108,31 @@ const CustomGloves = () => {
               Personalize
             </button>
           </div>
-          <div className="flex justify-between bg-zinc-200 ">
-            <div>
-              <p
-                onClick={() => swiperRef.current?.slidePrev()}
-                className={`p-4 mr-2 ${
-                  isBeginning ? "hidden" : "flex"
+          {activeTab === "colors" && (
+            <div className="flex justify-between bg-zinc-200">
+              <div>
+                <p
+                  onClick={() => swiperRef.current?.slidePrev()}
+                  className={`p-4 mr-2 ${
+                    isBeginning ? "hidden" : "flex"
+                  } text-blue-500 rounded transition-opacity font-semibold cursor-pointer`}
+                >
+                  <FaArrowLeft style={{ fontSize: "14px", margin: "5px" }} />
+                  Previous
+                </p>
+              </div>
+              <button
+                onClick={() => swiperRef.current?.slideNext()}
+                className={`p-4 ${
+                  isEnd ? "hidden" : "flex"
                 } text-blue-500 rounded transition-opacity font-semibold cursor-pointer`}
               >
-                <FaArrowLeft style={{ fontSize: "14px", margin: "5px" }} />
-                Previous
-              </p>
+                Next{" "}
+                <FaArrowRight style={{ fontSize: "14px", margin: "5px" }} />
+              </button>
             </div>
-            <button
-              onClick={() => swiperRef.current?.slideNext()}
-              className={`p-4 ${
-                isEnd ? "hidden" : "flex"
-              } text-blue-500 rounded transition-opacity font-semibold cursor-pointer`}
-            >
-              Next <FaArrowRight style={{ fontSize: "14px", margin: "5px" }} />
-            </button>
-          </div>
+          )}
 
-          {/* Swiper for Colors and Sizes */}
           <Swiper
             ref={swiperRef}
             spaceBetween={50}
@@ -149,16 +154,38 @@ const CustomGloves = () => {
                   />
                 </SwiperSlide>
               ))}
-            {activeTab === "sizes" &&
-              sizes.map((size) => (
-                <SwiperSlide key={size}>
-                  <p className="p-10 py-5 text-xl">{size}</p>
-                  <button className="p-2 bg-blue-500 text-white rounded">
-                    Select {size}
-                  </button>
-                </SwiperSlide>
-              ))}
           </Swiper>
+
+          {/* Directly render size radio buttons */}
+
+          {activeTab === "sizes" && (
+            <div className="bg-white rounded">
+              <p className="p-10 py-5 bg-zinc-100 text-xl">SIZE</p>
+
+              {sizes.map((size) => (
+                <div
+                  className={`flex  items-center border p-10 py-5 cursor-pointer ${
+                    selectedSize === size ? "bg-[#e3ffe3]" : "hover:bg-zinc-100"
+                  }`}
+                  key={size}
+                  onClick={() => handleSizeChange(size)}
+                >
+                  <input
+                    type="checkbox"
+                    id={size}
+                    name="size"
+                    checked={selectedSize === size}
+                    onChange={() => handleSizeChange(size)}
+                    className="custom-checkbox"
+                  />
+
+                  <label htmlFor={size} className="text-lg font-thin flex-1">
+                    {size}
+                  </label>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 

@@ -25,3 +25,38 @@
 .relative {
   position: relative;
 }
+.custom-checkbox {
+  appearance: none; /* Remove default checkbox styling */
+  width: 20px; 
+  height: 20px; 
+  border-radius: 50px; /* Slightly rounded corners */
+  border: 1px solid rgb(206, 206, 206); /* Border color */
+  cursor: pointer; /* Change cursor on hover */
+  outline: none; /* Remove outline */
+  position: relative; /* For positioning the checkmark */
+  transition: background-color 0.3s ease; /* Smooth transition */
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.custom-checkbox:checked {
+  background-color: rgb(101, 179, 101); /* Background color when checked */
+}
+
+.custom-checkbox:checked::after {
+  content: ''; /* Create a checkmark */
+  position: absolute; /* Position the checkmark */
+  top: 2px; 
+  left: 6px;
+  width: 6px; 
+  height: 12px; 
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.thin-underline {
+  text-decoration: underline;
+  text-decoration-thickness: 1px; /* Adjust thickness as needed */
+}
