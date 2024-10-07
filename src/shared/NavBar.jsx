@@ -10,7 +10,20 @@ import custom from "../assets/custom.png";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { IoCart } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
+import { setCartCount } from "../store/features/cartSlice";
 function NavBar() {
+  const dispatch = useDispatch();
+
+  const cartCount = useSelector((state) => state.cart.cartCount);
+  React.useEffect(() => {
+    const cartItems = localStorage.getItem("cartItems");
+    const parsedCartItems = cartItems ? JSON.parse(cartItems) : [];
+
+    const cartCount = parsedCartItems.length;
+    dispatch(setCartCount(cartCount));
+  }, []);
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const navigate = useNavigate();
   const handleNavigate = (route) => {
@@ -25,7 +38,7 @@ function NavBar() {
     setShowCustomCrafted((prev) => !prev);
   };
   return (
-    <div>
+    <div className="">
       <div className="bg-zinc-200 py-3 text-center flex justify-center font-medium text-xl">
         <p>FREE USA SHIPPING EVERYDAY </p>{" "}
         <p
@@ -36,7 +49,7 @@ function NavBar() {
         </p>
       </div>
       <div className="container mx-auto">
-        <div className="flex justify-between my-5">
+        <div className="flex justify-between py-5">
           <Typography
             variant="h6"
             component="div"
@@ -74,14 +87,20 @@ function NavBar() {
           </div>
 
           <div className="flex">
-            <IoCart
-              style={{
-                fontSize: "32px",
-                margin: "8px",
-                marginRight: "12px",
-                color: "#333333",
-              }}
-            />
+            <div className="relative right-0">
+              <IoCart
+                onClick={() => handleNavigate("/cart")}
+                style={{
+                  fontSize: "32px",
+                  margin: "8px",
+                  marginRight: "12px",
+                  color: "#333333",
+                }}
+              />
+              <p className="bg-blue-500 rounded-full text-white text-center absolute left-7 text-sm px-2  py-0.5 top-0">
+                {cartCount}
+              </p>
+            </div>
             <p className="text-black text-[18px] m-2 cursor-pointer xl:block hidden">
               Login/Register
             </p>

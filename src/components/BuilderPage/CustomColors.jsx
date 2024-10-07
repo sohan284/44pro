@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 const CustomColors = ({ handleColor }) => {
   const colors = [
     { name: "Black", value: "black" },
-    { name: "Gray", value: "#888888" },
-    { name: "White", value: "#ffffff" },
+    { name: "Gray", value: "gray" },
+    { name: "White", value: "white" },
     { name: "Wheat", value: "wheat" },
     { name: "Yellow", value: "yellow" },
     { name: "Orange", value: "orange" },
@@ -18,13 +18,13 @@ const CustomColors = ({ handleColor }) => {
     { name: "Blue", value: "blue" },
     { name: "Darkblue", value: "darkblue" },
     { name: "Skyblue", value: "skyblue" },
-    { name: "Mint", value: "#33d7ff" },
+    { name: "Aqua", value: "aqua" },
     { name: "Green", value: "green" },
     { name: "Darkgreen", value: "darkgreen" },
     { name: "Lightgreen", value: "lightgreen" },
   ];
   return (
-    <div className="grid bg-white grid-cols-5 gap-5 px-10 pt-5 mb-10 pb-5 shadow-lg">
+    <div className="grid bg-white grid-cols-5 gap-5 px-10 pt-5 pb-5 shadow-lg">
       {colors.map(({ name, value }) => (
         <div
           key={name}
