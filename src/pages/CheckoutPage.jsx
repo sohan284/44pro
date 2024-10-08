@@ -18,8 +18,6 @@ const CheckoutPage = () => {
     (total, item) => total + item.price,
     0
   );
-
-  // State for form inputs
   const [formData, setFormData] = useState({
     email: "",
     phone: "",
