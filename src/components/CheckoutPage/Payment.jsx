@@ -16,8 +16,6 @@ const Payment = ({ totalAmount, formData, cartItems }) => {
     setProcessing(true);
     setError(null);
     const cardElement = elements.getElement(CardElement);
-
-    // Create payment intent on your server
     const response = await fetch(
       "http://localhost:5000/api/payments/create-payment-intent",
       {
