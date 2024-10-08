@@ -1,24 +1,21 @@
-import { Button, TextField, Alert } from "@mui/material";
-import logo from "../../assets/logo.png";
+import { TextField, Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import logo from "../../assets/logo.svg";
 import UserManagement from "../../service/User";
-import { useAuth } from "../../context/AuthContext";
-
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState(null);
   const navigate = useNavigate();
-  const { setIsAuthenticated } = useAuth();
 
   const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
   };
 
   const handleLogin = async () => {
-    setErrorMsg(null); // Clear any previous error messages
+    setErrorMsg(null); // Clear previous error messages
 
     // Validate input fields
     if (!email || !password) {
@@ -41,7 +38,6 @@ function LoginPage() {
 
       if (response && response.token) {
         localStorage.setItem("token", response.token);
-        setIsAuthenticated(true);
         navigate("/");
         window.location.reload();
       } else {
@@ -53,7 +49,6 @@ function LoginPage() {
     }
   };
 
-  // Function to handle keypress and check for 'Enter' key
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleLogin();
@@ -61,58 +56,58 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex justify-center my-20">
-      <div className="text-start p-5 w-[400px] rounded-lg shadow-lg">
+    <div className="flex justify-center py-20 bg-zinc-100">
+      <div className="md:w-[400px] w-full lg:w-[450px] mx-5">
         <div className="flex justify-center">
-          <img className="w-[80%]" src={logo} alt="Logo" />
+          <img className="w-[50%]" src={logo} alt="Logo" />
         </div>
-        <h2 className="text-xl font-medium text-gray-500 mt-8">
-          Welcome to Taskify!
+        <h2 className="text-3xl text-center font-bold text-gray-900 mt-8">
+          Sign in to your account
         </h2>
-        <p className="text-gray-500 mt-1">Sign into your account</p>
-
-        <TextField
-          label="Your Email"
-          size="small"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          onKeyPress={handleKeyPress} // Add the keypress handler here
-          style={{ marginTop: 40 }}
-          className="w-full text-sm"
-        />
-        <TextField
-          label="Password"
-          size="small"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          onKeyPress={handleKeyPress} // Add the keypress handler here
-          style={{ marginTop: 20 }}
-          className="w-full text-sm"
-        />
+        <p className="text-center text-gray-600 my-5">
+          {"Or"}{" "}
+          <span
+            onClick={() => navigate("/signup")}
+            className="text-blue-400 cursor-pointer"
+          >
+            {"register if you don't have one"}
+          </span>
+        </p>
         {errorMsg && (
-          <Alert severity="error" className="mt-4">
+          <Alert severity="error" className="mb-4">
             {errorMsg}
           </Alert>
         )}
+        <div className="bg-white shadow-md px-8 pb-5 pt-5 rounded-lg">
+          <label className="block mt-5 text-gray-500 text-sm">
+            Email<span className="text-red-500 text-xs">*</span>
+          </label>
+          <TextField
+            size="small"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onKeyPress={handleKeyPress}
+            className="w-full text-sm"
+          />
+          <label className="block mt-5 text-gray-500 text-sm">
+            Password<span className="text-red-500 text-xs">*</span>
+          </label>
+          <TextField
+            size="small"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            onKeyPress={handleKeyPress}
+            className="w-full text-sm"
+          />
 
-        <Button
-          style={{ backgroundColor: "#6479f3", marginTop: 20, color: "white" }}
-          className="w-full"
-          onClick={handleLogin}
-        >
-          Login
-        </Button>
-
-        <p className="text-center my-5">
-          {"Don't have an account?"}{" "}
-          <span
-            onClick={() => navigate("/signup")}
-            className="text-[#6479f3] cursor-pointer"
+          <div
+            className="w-full text-center p-3 hover:opacity-85 cursor-pointer bg-[#359eff] text-white mt-5 rounded"
+            onClick={handleLogin}
           >
-            Sign Up
-          </span>
-        </p>
+            Log in
+          </div>
+        </div>
       </div>
     </div>
   );

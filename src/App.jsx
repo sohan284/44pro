@@ -7,9 +7,14 @@ import BuilderPage from "./pages/BuilderPage";
 import CustomGloves from "./components/BuilderPage/CustomGloves/CustomGloves";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import LoginPage from "./pages/Login/LoginPage";
+import SignUpPage from "./pages/Login/SignUpPage";
 function App() {
   return (
     <Routes>
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignUpPage />} />
+
       <Route path="/" element={<HomePage />} />
       <Route path="/builder" element={<BuilderPage />} />
       <Route path="/builder/custom-gloves" element={<CustomGloves />} />

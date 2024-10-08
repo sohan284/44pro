@@ -12,35 +12,52 @@ import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { IoCart } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { setCartCount } from "../store/features/cartSlice";
+
 function Navigation() {
   const dispatch = useDispatch();
-
   const cartCount = useSelector((state) => state.cart.cartCount);
+
   React.useEffect(() => {
     const cartItems = localStorage.getItem("cartItems");
     const parsedCartItems = cartItems ? JSON.parse(cartItems) : [];
-
     const cartCount = parsedCartItems.length;
     dispatch(setCartCount(cartCount));
-  }, []);
+  }, [dispatch]);
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const navigate = useNavigate();
+
   const handleNavigate = (route) => {
     navigate(route);
   };
+
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-  const [showCustomCrafted, setShowCustomCrafted] = React.useState(false);
 
+  const [showCustomCrafted, setShowCustomCrafted] = React.useState(false);
+  const [showMyAccount, setShowMyAccount] = React.useState(false);
   const toggleCustomCrafted = () => {
     setShowCustomCrafted((prev) => !prev);
   };
+
+  const toggleMyAccount = () => {
+    setShowMyAccount((prev) => !prev);
+  };
+
+  // Check for the token in local storage
+  const token = localStorage.getItem("token");
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    // Optionally, you can also navigate to the login page after logout
+    handleNavigate("/login");
+  };
+
   return (
     <div className="">
       <div className="bg-zinc-200 py-3 text-center flex justify-center font-medium text-xl">
-        <p>FREE USA SHIPPING EVERYDAY </p>{" "}
+        <p>FREE USA SHIPPING EVERYDAY </p>
         <p
           onClick={() => handleNavigate("/builder")}
           className="ml-3 font-thin text-lg cursor-pointer border hover:opacity-85 thin-underline"
@@ -50,23 +67,14 @@ function Navigation() {
       </div>
       <div className="container mx-auto">
         <div className="flex justify-between py-5">
-          <Typography
-            variant="h6"
-            component="div"
-            sx={
-              {
-                //   flexGrow: 1,
-                //   display: { xs: "none", sm: "block" },
-              }
-            }
-          >
+          <Typography variant="h6" component="div">
             <img
               onClick={() => handleNavigate("/")}
               className="h-10 px-5"
               src={logo}
             />
           </Typography>
-          <div className="w-full ml-10 hidden  xl:flex text-[18px]">
+          <div className="w-full ml-10 hidden xl:flex text-[18px]">
             <div className="flex mt-2">
               <CustomDropdown />
               <p className="text-black m-2 mx-4 cursor-pointer">
@@ -97,15 +105,50 @@ function Navigation() {
                   color: "#333333",
                 }}
               />
-              <p className="bg-blue-500 rounded-full text-white text-center absolute left-7 text-sm px-2  py-0.5 top-0">
+              <p className="bg-blue-500 rounded-full text-white text-center absolute left-7 text-sm px-2 py-0.5 top-0">
                 {cartCount}
               </p>
             </div>
-            <p className="text-black text-[18px] m-2 cursor-pointer xl:block hidden">
-              Login/Register
-            </p>
+            {token ? (
+              <div className="relative">
+                <p
+                  onClick={toggleMyAccount}
+                  className="text-black text-[15px] m-2 mt-4 cursor-pointer xl:flex text-nowrap hidden"
+                >
+                  My Account
+                  {showMyAccount ? (
+                    <IoIosArrowDown style={{ margin: "5px" }} />
+                  ) : (
+                    <IoIosArrowForward style={{ margin: "3px" }} />
+                  )}
+                </p>
+                {showMyAccount && (
+                  <ul className="absolute lg:block hidden  bg-white shadow-md mt-2 rounded-md w-40 z-10">
+                    <li
+                      onClick={() => handleNavigate("/orders")}
+                      className="hover:bg-gray-100 px-4 py-2 cursor-pointer"
+                    >
+                      Orders
+                    </li>
+                    <li
+                      onClick={handleLogout}
+                      className="hover:bg-gray-100 px-4 py-2 cursor-pointer"
+                    >
+                      Logout
+                    </li>
+                  </ul>
+                )}
+              </div>
+            ) : (
+              <p
+                onClick={() => handleNavigate("/login")}
+                className="text-black text-[18px] m-2 cursor-pointer xl:block hidden"
+              >
+                Login/Register
+              </p>
+            )}
 
-            <div className=" xl:hidden">
+            <div className="xl:hidden">
               <IconButton
                 color="black"
                 aria-label="open drawer"
@@ -173,9 +216,41 @@ function Navigation() {
               Builder
             </p>
             <Divider />
-            <p className="text-black m-2 ml-5 pb-5 pt-2 cursor-pointer hover:opacity-80">
-              Login/Register
-            </p>
+            {token ? (
+              <div className="flex flex-col">
+                <p
+                  onClick={toggleMyAccount}
+                  className="text-black flex m-2 ml-5 pb-5 pt-2 cursor-pointer hover:opacity-80"
+                >
+                  My Account
+                  {showMyAccount ? (
+                    <IoIosArrowDown style={{ margin: "5px" }} />
+                  ) : (
+                    <IoIosArrowForward style={{ margin: "3px" }} />
+                  )}
+                </p>
+                {showMyAccount && (
+                  <ul className="ml-10 list-disc cursor-pointer">
+                    <li
+                      onClick={() => handleNavigate("/orders")}
+                      className="hover:opacity-85"
+                    >
+                      Orders
+                    </li>
+                    <li onClick={handleLogout} className="hover:opacity-85">
+                      Logout
+                    </li>
+                  </ul>
+                )}
+              </div>
+            ) : (
+              <p
+                onClick={() => handleNavigate("/login")}
+                className="text-black m-2 ml-5 pb-5 pt-2 cursor-pointer hover:opacity-80"
+              >
+                Login/Register
+              </p>
+            )}
           </div>
         )}
       </div>
