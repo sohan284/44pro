@@ -6,12 +6,12 @@ import CustomExperience from "../components/HomePage/CustomExperience";
 import CustomSince from "../components/HomePage/CustomSince";
 import Social from "../components/HomePage/Social";
 import Footer from "../shared/Footer";
-import NavBar from "../shared/navBar";
+import Navigation from "../shared/Navigation";
 
 const HomePage = () => {
   return (
     <div className="home-container">
-      <NavBar />
+      <Navigation />
       <Banner />
       <CustomSince />
       <CustomExperience />

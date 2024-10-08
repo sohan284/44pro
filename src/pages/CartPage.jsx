@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Footer from "../shared/Footer";
-import NavBar from "../shared/navBar";
+import Navigation from "../shared/Navigation";
 
 const CartPage = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const CartPage = () => {
 
   return (
     <div className="home-container ">
-      <NavBar />
+      <Navigation />
       <div className="bg-zinc-100">
         <div>
           <h1 className="text-6xl font-bold text-center text-zinc-900 pt-16">

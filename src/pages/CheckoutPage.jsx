@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Footer from "../shared/Footer";
-import NavBar from "../shared/navBar";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Payment from "../components/CheckoutPage/Payment";
+import Navigation from "../shared/Navigation";
 
 const stripePromise = loadStripe(
   "pk_test_51Q7CdfLx5KAnXwY6x7FsarUIy9l3sftmhY7X5Ear4VFso2xPlQ97BrcN41KJJK66wGVy96DrlQvyNfYRBWUwKJUH00bv4w4ucv"
@@ -64,7 +64,7 @@ const CheckoutPage = () => {
 
   return (
     <div className="home-container ">
-      <NavBar />
+      <Navigation />
       <div className="bg-zinc-100">
         <div className="container pt-12 mx-auto grid lg:grid-cols-2">
           <div className="mx-10">

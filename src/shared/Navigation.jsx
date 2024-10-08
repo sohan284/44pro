@@ -12,7 +12,7 @@ import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { IoCart } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { setCartCount } from "../store/features/cartSlice";
-function NavBar() {
+function Navigation() {
   const dispatch = useDispatch();
 
   const cartCount = useSelector((state) => state.cart.cartCount);
@@ -183,4 +183,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default Navigation;

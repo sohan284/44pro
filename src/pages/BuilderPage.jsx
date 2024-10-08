@@ -1,11 +1,11 @@
 import CustomBuilder from "../components/BuilderPage/CustomBuilders";
 import Footer from "../shared/Footer";
-import NavBar from "../shared/navBar";
+import Navigation from "../shared/Navigation";
 
 const BuilderPage = () => {
   return (
     <div className="home-container ">
-      <NavBar />
+      <Navigation />
       <div className="bg-zinc-100">
         <CustomBuilder />
       </div>

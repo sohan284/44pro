@@ -1,13 +1,13 @@
 import { useRef, useState, useEffect } from "react";
 import GlovesSVG from "./GlovesSVG";
 import Footer from "../../../shared/Footer";
-import NavBar from "../../../shared/navBar";
 import CustomColors from "../CustomColors";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { setCartCount } from "../../../store/features/cartSlice";
+import Navigation from "../../../shared/Navigation";
 
 const CustomGloves = () => {
   const cartItems = localStorage.getItem("cartItems");
@@ -128,7 +128,7 @@ const CustomGloves = () => {
 
   return (
     <div className="">
-      <NavBar />
+      <Navigation />
       <div className="bg-zinc-300 px-5 ">
         <div className="grid lg:grid-cols-3 grid-cols-1">
           <div className="col-span-2 lg:w-[70%]">
