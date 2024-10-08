@@ -1,10 +1,7 @@
 import axios from "axios";
 const createOrder = async (data) => {
   try {
-    const response = await axios.post(
-      `https://44pro-server.vercel.app/orders`,
-      data
-    );
+    const response = await axios.post(`http://localhost:5000/orders`, data);
     return response.data;
   } catch (error) {
     console.error("Error creating the order:", error);
@@ -13,7 +10,7 @@ const createOrder = async (data) => {
 };
 const getOrders = async () => {
   try {
-    const response = await axios.get("https://44pro-server.vercel.app/orders");
+    const response = await axios.get("http://localhost:5000/orders");
     return response.data;
   } catch (error) {
     console.error("Failed to fetch order list:", error);

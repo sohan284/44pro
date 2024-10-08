@@ -17,7 +17,7 @@ const Payment = ({ totalAmount, formData, cartItems }) => {
     setError(null);
     const cardElement = elements.getElement(CardElement);
     const response = await fetch(
-      "https://44pro-server.vercel.app/api/payments/create-payment-intent",
+      "http://localhost:5000/api/payments/create-payment-intent",
       {
         method: "POST",
         headers: {
