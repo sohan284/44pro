@@ -7,7 +7,6 @@ const CartPage = () => {
   const cartItems = localStorage.getItem("cartItems");
   const parsedCartItems = cartItems ? JSON.parse(cartItems) : [];
 
-  // Calculate total price
   const totalPrice = parsedCartItems.reduce(
     (total, item) => total + item.price,
     0
