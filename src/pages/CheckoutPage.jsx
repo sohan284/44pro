@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Footer from "../shared/Footer";
 import NavBar from "../shared/navBar";
 import { loadStripe } from "@stripe/stripe-js";
@@ -270,7 +270,11 @@ const CheckoutPage = () => {
                 </p>
 
                 <Elements stripe={stripePromise}>
-                  <Payment totalAmount={totalPrice} formData={formData} />
+                  <Payment
+                    cartItems={parsedCartItems}
+                    totalAmount={totalPrice}
+                    formData={formData}
+                  />
                 </Elements>
               </div>
             )}

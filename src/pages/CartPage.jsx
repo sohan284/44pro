@@ -26,7 +26,10 @@ const CartPage = () => {
           </h1>
           {parsedCartItems.length === 0 ? (
             <div className="flex justify-center mt-10 pb-20">
-              <p className="bg-blue-500 cursor-pointer hover:opacity-85 font-normal text-white px-5 py-3 rounded">
+              <p
+                onClick={() => navigate("/builder/custom-gloves")}
+                className="bg-blue-500 cursor-pointer hover:opacity-85 font-normal text-white px-5 py-3 rounded"
+              >
                 Build a Custom Glove
               </p>{" "}
               <p className="p-3 ">or </p>

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import OrderManagement from "../../service/Order";
+import PropTypes from "prop-types";
 
-const Payment = ({ totalAmount, formData }) => {
+const Payment = ({ totalAmount, formData, cartItems }) => {
   const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
@@ -43,9 +45,12 @@ const Payment = ({ totalAmount, formData }) => {
       setError(stripeError.message);
     } else {
       // Payment succeeded
-      toast.success("Payment Successful!");
-      localStorage.removeItem("cartItems");
-      navigate("/");
+      const data = { formData, cartItems };
+      OrderManagement.createOrder(data).then(() => {
+        toast.success("Payment Successful!");
+        localStorage.removeItem("cartItems");
+        navigate("/");
+      });
     }
 
     setProcessing(false);
@@ -69,6 +74,11 @@ const Payment = ({ totalAmount, formData }) => {
       {error && <div>{error}</div>}
     </form>
   );
+};
+Payment.propTypes = {
+  cartItems: PropTypes.array,
+  totalAmount: PropTypes.any,
+  formData: PropTypes.object,
 };
 
 export default Payment;
