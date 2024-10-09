@@ -2,7 +2,10 @@ import axios from "axios";
 
 const upsertUser = async (userData) => {
   try {
-    const response = await axios.post(`http://localhost:5000/users`, userData);
+    const response = await axios.post(
+      `https://44pro-server.vercel.app/users`,
+      userData
+    );
     return response.data;
   } catch (error) {
     console.error("Error creating the user:", error);
@@ -13,7 +16,7 @@ const upsertUser = async (userData) => {
 const getUserList = async (role = "") => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/users?role=${role}`
+      `https://44pro-server.vercel.app/users?role=${role}`
     );
     return response.data;
   } catch (error) {
@@ -24,7 +27,9 @@ const getUserList = async (role = "") => {
 
 const getSingleUser = async (id) => {
   try {
-    const response = await axios.get(`http://localhost:5000/users/${id}`);
+    const response = await axios.get(
+      `https://44pro-server.vercel.app/users/${id}`
+    );
     return response.data;
   } catch (error) {
     console.error("Failed to fetch User:", error);
@@ -34,7 +39,9 @@ const getSingleUser = async (id) => {
 
 const deleteUser = async (id) => {
   try {
-    const response = await axios.delete(`http://localhost:5000/users/${id}`);
+    const response = await axios.delete(
+      `https://44pro-server.vercel.app/users/${id}`
+    );
     return response.data;
   } catch (error) {
     console.error("Failed to delete :", error);
@@ -44,7 +51,7 @@ const deleteUser = async (id) => {
 
 const loginUser = async (email, password) => {
   try {
-    const response = await axios.post(`http://localhost:5000/login`, {
+    const response = await axios.post(`https://44pro-server.vercel.app/login`, {
       email,
       password,
     });
@@ -61,9 +68,12 @@ const loginUser = async (email, password) => {
 // New function to send OTP
 const sendOtp = async (email) => {
   try {
-    const response = await axios.post(`http://localhost:5000/send-otp`, {
-      email,
-    });
+    const response = await axios.post(
+      `https://44pro-server.vercel.app/send-otp`,
+      {
+        email,
+      }
+    );
     return response.data;
   } catch (error) {
     console.error("Failed to send OTP:", error);
@@ -74,10 +84,13 @@ const sendOtp = async (email) => {
 // New function to verify OTP
 const verifyOtp = async (email, otp) => {
   try {
-    const response = await axios.post(`http://localhost:5000/verify-otp`, {
-      email,
-      otp,
-    });
+    const response = await axios.post(
+      `https://44pro-server.vercel.app/verify-otp`,
+      {
+        email,
+        otp,
+      }
+    );
     return response.data; // Assuming the API returns a success flag or similar
   } catch (error) {
     console.error("Failed to verify OTP:", error);
