@@ -83,7 +83,12 @@ function Navigation() {
               <p className="text-black m-2 mx-4 cursor-pointer">
                 Trending Designs
               </p>
-              <p className="text-black m-2 mx-4 cursor-pointer">Team 44</p>
+              <p
+                onClick={() => handleNavigate("/team44")}
+                className="text-black m-2 mx-4 cursor-pointer"
+              >
+                Team 44
+              </p>
               <p className="text-black m-2 mx-4 cursor-pointer">Help Center</p>
             </div>
             <p
@@ -201,7 +206,10 @@ function Navigation() {
               <p className="text-black m-2 cursor-pointer hover:opacity-80">
                 Trending Designs
               </p>
-              <p className="text-black m-2 cursor-pointer hover:opacity-80">
+              <p
+                onClick={() => handleNavigate("/team44")}
+                className="text-black m-2 cursor-pointer hover:opacity-80"
+              >
                 Team 44
               </p>
               <p className="text-black m-2 cursor-pointer hover:opacity-80">

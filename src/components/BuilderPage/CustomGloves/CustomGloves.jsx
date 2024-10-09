@@ -5,10 +5,11 @@ import CustomColors from "../CustomColors";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCartCount } from "../../../store/features/cartSlice";
 import Navigation from "../../../shared/Navigation";
 import { toast } from "react-toastify";
+import { setGloveColors } from "../../../store/features/gloveSlice";
 
 const CustomGloves = () => {
   const cartItems = localStorage.getItem("cartItems");
@@ -18,22 +19,7 @@ const CustomGloves = () => {
   const swiperRef = useRef(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
-  const [color, setColor] = useState({
-    lather1: "darkgray",
-    lather2: "lightgray",
-    lather3: "darkgray",
-    lather4: "lightgray",
-    lather5: "darkgray",
-    lather6: "lightgray",
-    lather7: "darkgray",
-    lather8: "darkgray",
-    web: "gray",
-    wrist: "wheat",
-    palm: "darkgray",
-    binding: "gray",
-    logo: "black",
-    laces: "black",
-  });
+  const colors = useSelector((state) => state.glove.gloveColors);
 
   const [activeTab, setActiveTab] = useState("colors");
   const [selectedSize, setSelectedSize] = useState("");
@@ -41,11 +27,7 @@ const CustomGloves = () => {
   const [price, setPrice] = useState(249);
 
   const handleColor = (part, value) => {
-    setColor((prevColor) => ({
-      ...prevColor,
-      [part]: value,
-    }));
-    console.log(part, value);
+    dispatch(setGloveColors({ [part]: value }));
   };
 
   const handleSlideChange = (swiper) => {
@@ -98,7 +80,7 @@ const CustomGloves = () => {
   const handleCart = () => {
     const itemDetails = {
       title: "Custom Gloves",
-      colors: color,
+      colors: colors,
       size: selectedSize,
       personalize: selectedPersonalize,
       price: price,
@@ -124,22 +106,24 @@ const CustomGloves = () => {
       localStorage.setItem("cartItems", JSON.stringify(existingCart));
       dispatch(setCartCount(cartCount + 1));
       toast.success("Item added to cart!");
-      setColor({
-        lather1: "darkgray",
-        lather2: "lightgray",
-        lather3: "darkgray",
-        lather4: "lightgray",
-        lather5: "darkgray",
-        lather6: "lightgray",
-        lather7: "darkgray",
-        lather8: "darkgray",
-        web: "gray",
-        wrist: "wheat",
-        palm: "darkgray",
-        binding: "gray",
-        logo: "black",
-        laces: "black",
-      });
+      dispatch(
+        setGloveColors({
+          lather1: "darkgray",
+          lather2: "lightgray",
+          lather3: "darkgray",
+          lather4: "lightgray",
+          lather5: "darkgray",
+          lather6: "lightgray",
+          lather7: "darkgray",
+          lather8: "darkgray",
+          web: "gray",
+          wrist: "wheat",
+          palm: "darkgray",
+          binding: "gray",
+          logo: "black",
+          laces: "black",
+        })
+      );
       setSelectedSize("");
       setSelectedPersonalize("");
     }
@@ -151,7 +135,7 @@ const CustomGloves = () => {
       <div className="bg-zinc-300 px-5 ">
         <div className="grid lg:grid-cols-3 grid-cols-1">
           <div className="col-span-2 lg:w-[70%]">
-            <GlovesSVG color={color} />
+            <GlovesSVG color={colors} />
           </div>
           <div className="col-span-1 mt-5">
             <div className="grid grid-cols-3 mt-4">
@@ -227,7 +211,7 @@ const CustomGloves = () => {
                   <SwiperSlide key={key}>
                     <p className="p-10 py-5 bg-zinc-100 text-xl">{name}</p>
                     <CustomColors
-                      color={color}
+                      color={colors}
                       handleColor={(value) => handleColor(key, value)}
                     />
                   </SwiperSlide>
