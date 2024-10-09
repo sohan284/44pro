@@ -130,7 +130,7 @@ function SignUpPage() {
       setStep(1); // Reset to step 1
       navigate("/login");
     } catch (error) {
-      setErrorMsg(`Error: ${error.response.data.message}`);
+      setErrorMsg(`Error: ${error?.response?.data?.message || error.message}`);
     }
   };
 
