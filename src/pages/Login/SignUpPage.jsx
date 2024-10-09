@@ -170,7 +170,7 @@ function SignUpPage() {
   };
 
   return (
-    <div className="flex justify-center py-20 bg-zinc-100">
+    <div className="flex justify-center py-20 h-screen bg-zinc-100">
       <div className="md:w-[400px] w-full lg:w-[450px] mx-5">
         <div className="flex justify-center">
           <img className="w-[50%]" src={logo} alt="Logo" />
@@ -272,8 +272,8 @@ function SignUpPage() {
                     size="small"
                     value={digit}
                     onChange={(e) => handleOtpChange(index, e.target.value)}
-                    className="w-[12%] text-sm"
-                    inputProps={{ maxLength: 1 }}
+                    className="w-[15%] text-sm"
+                    // inputProps={{ maxLength: 1 }}
                   />
                 ))}
               </div>
