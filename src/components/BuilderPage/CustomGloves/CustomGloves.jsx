@@ -8,6 +8,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { setCartCount } from "../../../store/features/cartSlice";
 import Navigation from "../../../shared/Navigation";
+import { toast } from "react-toastify";
 
 const CustomGloves = () => {
   const cartItems = localStorage.getItem("cartItems");
@@ -116,13 +117,31 @@ const CustomGloves = () => {
 
     if (itemIndex > -1) {
       // If the item already exists, you can either update it or simply show a message
-      alert("This item is already in your cart!");
+      toast.warning("This item is already in your cart!");
     } else {
       // If it doesn't exist, add it to the cart
       existingCart.push(itemDetails);
       localStorage.setItem("cartItems", JSON.stringify(existingCart));
       dispatch(setCartCount(cartCount + 1));
-      alert("Item added to cart!");
+      toast.success("Item added to cart!");
+      setColor({
+        lather1: "darkgray",
+        lather2: "lightgray",
+        lather3: "darkgray",
+        lather4: "lightgray",
+        lather5: "darkgray",
+        lather6: "lightgray",
+        lather7: "darkgray",
+        lather8: "darkgray",
+        web: "gray",
+        wrist: "wheat",
+        palm: "darkgray",
+        binding: "gray",
+        logo: "black",
+        laces: "black",
+      });
+      setSelectedSize("");
+      setSelectedPersonalize("");
     }
   };
 

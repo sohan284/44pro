@@ -1,4 +1,4 @@
-const BattingGlovesSVG = ({ color }) => (
+const BattingGlovesSVG = () => (
   <svg
     version="1.1"
     viewBox="0 0 1532 2048"

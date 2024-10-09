@@ -11,9 +11,11 @@ const createOrder = async (data) => {
     throw error;
   }
 };
-const getOrders = async () => {
+const getOrders = async (email = "") => {
   try {
-    const response = await axios.get("https://44pro-server.vercel.app/orders");
+    const response = await axios.get(
+      `https://44pro-server.vercel.app/orders?email=${email}`
+    );
     return response.data;
   } catch (error) {
     console.error("Failed to fetch order list:", error);

@@ -173,7 +173,12 @@ function SignUpPage() {
     <div className="flex justify-center py-20 h-screen bg-zinc-100">
       <div className="md:w-[400px] w-full lg:w-[450px] mx-5">
         <div className="flex justify-center">
-          <img className="w-[50%]" src={logo} alt="Logo" />
+          <img
+            className="w-[50%]"
+            onClick={() => navigate("/")}
+            src={logo}
+            alt="Logo"
+          />
         </div>
         <h2 className="text-3xl text-center font-bold text-gray-900 mt-8">
           Sign up for an account
