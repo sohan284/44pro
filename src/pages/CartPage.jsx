@@ -119,7 +119,7 @@ const CartPage = () => {
                 ))}
               </div>
               <div className="col-span-1 my-10">
-                <div className="bg-white shadow-xl p-5 mx-10 w-[380px]">
+                <div className="bg-white shadow-xl p-5 lg:mx-10 w-[350px]">
                   <h2 className="text-xl font-semibold flex justify-between">
                     Total <span>${totalPrice.toFixed(2)}</span>
                   </h2>

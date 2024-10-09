@@ -254,7 +254,7 @@ function SignUpPage() {
                     }}
                   />
                 ) : (
-                  " Send OTP"
+                  " Sign Up"
                 )}
               </div>
             </>
