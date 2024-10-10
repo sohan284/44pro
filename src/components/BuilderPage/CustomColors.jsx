@@ -6,6 +6,8 @@ const CustomColors = ({ handleColor }) => {
     { name: "Gray", value: "gray" },
     { name: "White", value: "white" },
     { name: "Wheat", value: "wheat" },
+    { name: "Khaki", value: "Khaki" },
+    { name: "Gold", value: "Gold" },
     { name: "Yellow", value: "yellow" },
     { name: "Orange", value: "orange" },
     { name: "Tomato", value: "tomato" },
@@ -13,15 +15,19 @@ const CustomColors = ({ handleColor }) => {
     { name: "Brown", value: "brown" },
     { name: "Pink", value: "pink" },
     { name: "Red", value: "red" },
+    { name: "Darkred", value: "darkred" },
     { name: "Maroon", value: "maroon" },
     { name: "Purple", value: "purple" },
     { name: "Blue", value: "blue" },
     { name: "Darkblue", value: "darkblue" },
+    { name: "MidnightBlue", value: "MidnightBlue" },
+    { name: "Lightgreen", value: "lightgreen" },
     { name: "Skyblue", value: "skyblue" },
     { name: "Aqua", value: "aqua" },
-    { name: "Green", value: "green" },
-    { name: "Darkgreen", value: "darkgreen" },
-    { name: "Lightgreen", value: "lightgreen" },
+    { name: "DarkTurquoise", value: "DarkTurquoise" },
+    { name: "Teal", value: "Teal" },
+    { name: "DarkSlateGray", value: "DarkSlateGray" },
+    { name: "Olive", value: "Olive" },
   ];
   return (
     <div className="grid bg-white grid-cols-5 gap-5 px-10 pt-5 pb-5 shadow-lg">
@@ -29,7 +35,7 @@ const CustomColors = ({ handleColor }) => {
         <div
           key={name}
           onClick={() => handleColor(value)}
-          className="flex flex-col text-center cursor-pointer"
+          className="flex flex-col text-center overflow-hidden cursor-pointer"
         >
           <div
             style={{ backgroundColor: value }}
