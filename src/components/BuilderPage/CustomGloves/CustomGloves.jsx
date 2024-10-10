@@ -134,8 +134,10 @@ const CustomGloves = () => {
       <Navigation />
       <div className="bg-zinc-300 px-5 ">
         <div className="grid lg:grid-cols-3 grid-cols-1">
-          <div className="col-span-2 lg:w-[70%]">
-            <GlovesSVG color={colors} />
+          <div className="col-span-2 flex justify-center">
+            <div className="lg:w-[60%] w-[70%]">
+              <GlovesSVG color={colors} />
+            </div>
           </div>
           <div className="col-span-1 mt-5">
             <div className="grid grid-cols-3 mt-4">
