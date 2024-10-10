@@ -11,6 +11,7 @@ import LoginPage from "./pages/Login/LoginPage";
 import SignUpPage from "./pages/Login/SignUpPage";
 import OrderPage from "./pages/OrderPage";
 import Team44Page from "./pages/Team44Page";
+import CustomBats from "./components/BuilderPage/CustomBats/CustomBats";
 function App() {
   return (
     <Routes>
@@ -19,6 +20,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/builder" element={<BuilderPage />} />
       <Route path="/builder/custom-gloves" element={<CustomGloves />} />
+      <Route path="/builder/custom-bats" element={<CustomBats />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/checkout" element={<CheckoutPage />} />
       <Route path="/orders" element={<OrderPage />} />
