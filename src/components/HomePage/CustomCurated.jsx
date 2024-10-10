@@ -3,35 +3,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import experiencebg from "../../assets/experienceBg.jpg";
 import "swiper/css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import curated1 from "../../assets/curated1.png";
-import curated10 from "../../assets/curated10.png";
-import curated2 from "../../assets/curated2.png";
-import curated3 from "../../assets/curated3.png";
-import curated4 from "../../assets/curated4.png";
-import curated5 from "../../assets/curated5.png";
-import curated6 from "../../assets/curated6.png";
-import curated7 from "../../assets/curated7.png";
-import curated8 from "../../assets/curated8.png";
-import curated9 from "../../assets/curated9.png";
 import CustomButton from "../../shared/CustomButton";
 import redLine from "../../assets/redLine.svg";
+import GlovesSVG from "../BuilderPage/CustomGloves/GlovesSVG";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setGloveColors } from "../../store/features/gloveSlice";
+import curateds from "../../data/curateds.json";
 const CustomCurated = () => {
   const swiperRef = useRef(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
-  const curateds = [
-    { title: "Duck Hunt", img: curated1, brand: "Infield / Pro 44" },
-    { title: "Spring Season", img: curated2, brand: "Infield / Pro 44" },
-    { title: "Lightning", img: curated3, brand: "Infield / Pro 44" },
-    { title: "Cherry Blossom", img: curated4, brand: "Alloy XP BBCOR" },
-    { title: "The Jocker", img: curated5, brand: "Alloy XP BBCOR" },
-    { title: "The Bachelor", img: curated6, brand: "Infield / Pro 44" },
-    { title: "USA", img: curated7, brand: "Alloy XP BBCOR" },
-    { title: "The Mint", img: curated8, brand: "Infield / Pro 44" },
-    { title: "City Connect", img: curated9, brand: "Alloy XP BBCOR" },
-    { title: "Faith", img: curated10, brand: "Alloy XP BBCOR" },
-  ];
-
+  const handleClick = (colors) => {
+    dispatch(setGloveColors(colors));
+    navigate("/builder/custom-gloves");
+  };
   return (
     <div
       style={{
@@ -117,13 +105,18 @@ const CustomCurated = () => {
         {curateds.map((curated) => (
           <SwiperSlide key={curated.title}>
             <div className="bg-white p-5">
-              <img src={curated.img} alt={curated.title} />
+              {/* <img src={curated.img} alt={curated.title} /> */}
+              <GlovesSVG color={curated.colors} />
               <div className="flex justify-between">
                 <div>
                   <p>{curated.brand}</p>
                   <p className="text-xl font-semibold">{curated.title}</p>
                 </div>
-                <CustomButton title="Custom" bgColor="bg-zinc-800 text-white" />
+                <CustomButton
+                  handleClick={() => handleClick(curated.colors)}
+                  title="Custom"
+                  bgColor="bg-zinc-800 text-white"
+                />
               </div>
             </div>
           </SwiperSlide>

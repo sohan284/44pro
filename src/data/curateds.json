@@ -1,0 +1,192 @@
+[
+    {
+      "title": "Duck Hunt",
+      "img": "curated1",
+      "brand": "Infield / Pro 44",
+      "colors": {
+        "lather1": "yellow",
+        "lather2": "yellow",
+        "lather3": "DarkTurquoise",
+        "lather4": "yellow",
+        "lather5": "DarkTurquoise",
+        "lather6": "yellow",
+        "lather7": "DarkTurquoise",
+        "lather8": "yellow",
+        "web": "DarkTurquoise",
+        "wrist": "DarkTurquoise",
+        "palm": "DarkTurquoise",
+        "binding": "DarkTurquoise",
+        "logo": "yellow",
+        "laces": "DarkTurquoise"
+      }
+    },
+    {
+      "title": "Spring Season",
+      "img": "curated2",
+      "brand": "Infield / Pro 44",
+      "colors": {
+        "lather1": "chocolate",
+        "lather2": "black",
+        "lather3": "black",
+        "lather4": "black",
+        "lather5": "black",
+        "lather6": "black",
+        "lather7": "black",
+        "lather8": "chocolate",
+        "web": "black",
+        "wrist": "chocolate",
+        "palm": "chocolate",
+        "binding": "black",
+        "logo": "black",
+        "laces": "chocolate"
+      }
+    },
+    {
+      "title": "Lightning",
+      "img": "curated3",
+      "brand": "Infield / Pro 44",
+      "colors": {
+        "lather1": "MidnightBlue",
+        "lather2": "MidnightBlue",
+        "lather3": "orange",
+        "lather4": "orange",
+        "lather5": "orange",
+        "lather6": "orange",
+        "lather7": "orange",
+        "lather8": "orange",
+        "web": "MidnightBlue",
+        "wrist": "black",
+        "palm": "MidnightBlue",
+        "binding": "MidnightBlue",
+        "logo": "white",
+        "laces": "MidnightBlue"
+      }
+    },
+    {
+      "title": "Cherry Blossom",
+      "img": "curated4",
+      "brand": "Alloy XP BBCOR",
+      "colors": {
+        "lather1": "black",
+        "lather2": "black",
+        "lather3": "black",
+        "lather4": "black",
+        "lather5": "black",
+        "lather6": "black",
+        "lather7": "black",
+        "lather8": "black",
+        "web": "black",
+        "wrist": "black",
+        "palm": "darkred",
+        "binding": "darkred",
+        "logo": "darkred",
+        "laces": "darkred"
+      }
+    },
+    {
+      "title": "The Jocker",
+      "img": "curated5",
+      "brand": "Alloy XP BBCOR",
+      "colors": {
+        "lather1": "wheat",
+        "lather2": "wheat",
+        "lather3": "wheat",
+        "lather4": "wheat",
+        "lather5": "wheat",
+        "lather6": "wheat",
+        "lather7": "wheat",
+        "lather8": "wheat",
+        "web": "wheat",
+        "wrist": "wheat",
+        "palm": "wheat",
+        "binding": "darkblue",
+        "logo": "darkblue",
+        "laces": "darkblue"
+      }
+    },
+    {
+      "title": "The Bachelor",
+      "img": "curated6",
+      "brand": "Infield / Pro 44",
+      "colors": {
+        "lather1": "black",
+        "lather2": "black",
+        "lather3": "black",
+        "lather4": "black",
+        "lather5": "black",
+        "lather6": "black",
+        "lather7": "black",
+        "lather8": "black",
+        "web": "wheat",
+        "wrist": "wheat",
+        "palm": "wheat",
+        "binding": "white",
+        "logo": "red",
+        "laces": "red"
+      }
+    },
+    {
+      "title": "The Mint",
+      "img": "curated8",
+      "brand": "Infield / Pro 44",
+      "colors": {
+        "lather1": "yellow",
+        "lather2": "yellow",
+        "lather3": "DarkTurquoise",
+        "lather4": "yellow",
+        "lather5": "DarkTurquoise",
+        "lather6": "yellow",
+        "lather7": "DarkTurquoise",
+        "lather8": "yellow",
+        "web": "DarkTurquoise",
+        "wrist": "DarkTurquoise",
+        "palm": "DarkTurquoise",
+        "binding": "DarkTurquoise",
+        "logo": "yellow",
+        "laces": "DarkTurquoise"
+      }
+    },
+    {
+      "title": "City Connect",
+      "img": "curated9",
+      "brand": "Alloy XP BBCOR",
+      "colors": {
+        "lather1": "DarkTurquoise",
+        "lather2": "DarkTurquoise",
+        "lather3": "DarkTurquoise",
+        "lather4": "DarkTurquoise",
+        "lather5": "DarkTurquoise",
+        "lather6": "DarkTurquoise",
+        "lather7": "DarkTurquoise",
+        "lather8": "DarkTurquoise",
+        "web": "DarkTurquoise",
+        "wrist": "DarkTurquoise",
+        "palm": "DarkTurquoise",
+        "binding": "darkred",
+        "logo": "darkred",
+        "laces": "darkred"
+      }
+    },
+    {
+      "title": "Faith",
+      "img": "curated10",
+      "brand": "Alloy XP BBCOR",
+      "colors": {
+        "lather1": "wheat",
+        "lather2": "wheat",
+        "lather3": "wheat",
+        "lather4": "wheat",
+        "lather5": "wheat",
+        "lather6": "wheat",
+        "lather7": "wheat",
+        "lather8": "wheat",
+        "web": "wheat",
+        "wrist": "wheat",
+        "palm": "wheat",
+        "binding": "darkblue",
+        "logo": "darkblue",
+        "laces": "darkblue"
+      }
+    }
+  ]
+  
