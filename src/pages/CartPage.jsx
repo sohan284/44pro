@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Footer from "../shared/Footer";
 import Navigation from "../shared/Navigation";
+import GlovesSVG from "../components/BuilderPage/CustomGloves/GlovesSVG";
 
 const CartPage = () => {
   const navigate = useNavigate();
@@ -41,11 +42,14 @@ const CartPage = () => {
               <div className="lg:col-span-2 col-span-3">
                 {parsedCartItems?.map((item, i) => (
                   <div className="py-10 border-b" key={i}>
-                    <div className="flex justify-around ">
+                    <div className="grid grid-cols-3 mb-10 border">
+                      <div className="w-[50%]">
+                        <GlovesSVG color={item.colors} />
+                      </div>
                       <h1 className="text-xl font-medium my-10">
                         {item.title}
                       </h1>
-                      <h1 className="text-xl font-medium my-10">
+                      <h1 className="text-xl text-[tomato] font-medium my-10">
                         ${item.price}
                       </h1>
                     </div>
