@@ -8,8 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCartCount } from "../../../store/features/cartSlice";
 import Navigation from "../../../shared/Navigation";
 import { toast } from "react-toastify";
-import { setGloveColors } from "../../../store/features/gloveSlice";
 import BatsSVG from "./BatsSVG";
+import { setBatColors } from "../../../store/features/colorSlice";
 
 const CustomBats = () => {
   const cartItems = localStorage.getItem("cartItems");
@@ -19,7 +19,7 @@ const CustomBats = () => {
   const swiperRef = useRef(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
-  const colors = useSelector((state) => state.glove.gloveColors);
+  const colors = useSelector((state) => state.color.batColors);
 
   const [activeTab, setActiveTab] = useState("colors");
   const [selectedSize, setSelectedSize] = useState("");
@@ -27,7 +27,7 @@ const CustomBats = () => {
   const [price, setPrice] = useState(249);
 
   const handleColor = (part, value) => {
-    dispatch(setGloveColors({ [part]: value }));
+    dispatch(setBatColors({ [part]: value }));
   };
 
   const handleSlideChange = (swiper) => {
@@ -35,21 +35,14 @@ const CustomBats = () => {
     setIsEnd(swiper.isEnd);
   };
 
-  const gloveParts = [
-    { name: "LEATHER 1", key: "lather1" },
-    { name: "LEATHER 2", key: "lather2" },
-    { name: "LEATHER 3", key: "lather3" },
-    { name: "LEATHER 4", key: "lather4" },
-    { name: "LEATHER 5", key: "lather5" },
-    { name: "LEATHER 6", key: "lather6" },
-    { name: "LEATHER 7", key: "lather7" },
-    { name: "LEATHER 8", key: "lather8" },
-    { name: "PALM", key: "palm" },
-    { name: "WEB", key: "web" },
-    { name: "WRIST", key: "wrist" },
-    { name: "BINDING", key: "binding" },
-    { name: "LOGO COLOR", key: "logo" },
-    { name: "LACES", key: "laces" },
+  const batParts = [
+    { name: "Base Color", key: "base" },
+    { name: "Model Graphic", key: "modelGraphic" },
+    { name: "Handle Graphic", key: "handleGraphic" },
+    { name: "Grip Color", key: "grip" },
+    { name: "Grip Up Color", key: "gripUp" },
+    { name: "Brand Color", key: "brand" },
+    { name: "Logo Color", key: "logo" },
   ];
 
   const sizes = ['11"', '11.5"', '12"', '14"'];
@@ -79,7 +72,7 @@ const CustomBats = () => {
 
   const handleCart = () => {
     const itemDetails = {
-      title: "Custom Gloves",
+      title: "Custom Bats",
       colors: colors,
       size: selectedSize,
       personalize: selectedPersonalize,
@@ -98,46 +91,25 @@ const CustomBats = () => {
     );
 
     if (itemIndex > -1) {
-      // If the item already exists, you can either update it or simply show a message
       toast.warning("This item is already in your cart!");
     } else {
-      // If it doesn't exist, add it to the cart
       existingCart.push(itemDetails);
       localStorage.setItem("cartItems", JSON.stringify(existingCart));
       dispatch(setCartCount(cartCount + 1));
       toast.success("Item added to cart!");
-      dispatch(
-        setGloveColors({
-          lather1: "darkgray",
-          lather2: "lightgray",
-          lather3: "darkgray",
-          lather4: "lightgray",
-          lather5: "darkgray",
-          lather6: "lightgray",
-          lather7: "darkgray",
-          lather8: "darkgray",
-          web: "gray",
-          wrist: "wheat",
-          palm: "darkgray",
-          binding: "gray",
-          logo: "black",
-          laces: "black",
-        })
-      );
+      dispatch(setBatColors(batParts));
       setSelectedSize("");
       setSelectedPersonalize("");
     }
   };
 
   return (
-    <div className="">
+    <div>
       <Navigation />
-      <div className="bg-zinc-300 px-5 ">
+      <div className="bg-zinc-300 px-5">
         <div className="grid lg:grid-cols-3 grid-cols-1">
           <div className="col-span-2 flex justify-center">
-            <div>
-              <BatsSVG color={colors} />
-            </div>
+            <BatsSVG color={colors} />
           </div>
           <div className="col-span-1 mt-5">
             <div className="grid grid-cols-3 mt-4">
@@ -149,7 +121,7 @@ const CustomBats = () => {
                     : "bg-zinc-300 hover:bg-zinc-400"
                 }`}
               >
-                Base
+                Sizes
               </button>
               <button
                 onClick={() => setActiveTab("colors")}
@@ -203,13 +175,13 @@ const CustomBats = () => {
               slidesPerView={1}
               onSlideChange={handleSlideChange}
               onSwiper={(swiper) => {
-                swiperRef.current = swiper; // Save the swiper instance
+                swiperRef.current = swiper;
                 setIsBeginning(swiper.isBeginning);
                 setIsEnd(swiper.isEnd);
               }}
             >
               {activeTab === "colors" &&
-                gloveParts.map(({ name, key }) => (
+                batParts.map(({ name, key }) => (
                   <SwiperSlide key={key}>
                     <p className="p-10 py-5 bg-zinc-100 text-xl">{name}</p>
                     <CustomColors
@@ -224,7 +196,6 @@ const CustomBats = () => {
             {activeTab === "sizes" && (
               <div className="bg-white rounded">
                 <p className="p-10 py-5 bg-zinc-100 text-xl">SIZE</p>
-
                 {sizes.map((size) => (
                   <div
                     className={`flex items-center border p-10 py-5 cursor-pointer ${
@@ -256,7 +227,6 @@ const CustomBats = () => {
                 <p className="p-10 py-5 bg-zinc-100 text-xl uppercase">
                   Personalize
                 </p>
-
                 {personalizeOptions.map((option) => (
                   <div
                     className={`flex items-center border p-10 py-5 cursor-pointer ${

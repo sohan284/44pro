@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCartCount } from "../../../store/features/cartSlice";
 import Navigation from "../../../shared/Navigation";
 import { toast } from "react-toastify";
-import { setGloveColors } from "../../../store/features/gloveSlice";
+import { setGloveColors } from "../../../store/features/colorSlice";
 
 const CustomGloves = () => {
   const cartItems = localStorage.getItem("cartItems");
@@ -19,7 +19,7 @@ const CustomGloves = () => {
   const swiperRef = useRef(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
-  const colors = useSelector((state) => state.glove.gloveColors);
+  const colors = useSelector((state) => state.color.gloveColors);
 
   const [activeTab, setActiveTab] = useState("colors");
   const [selectedSize, setSelectedSize] = useState("");

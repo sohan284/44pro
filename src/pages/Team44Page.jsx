@@ -4,7 +4,7 @@ import GlovesSVG from "../components/BuilderPage/CustomGloves/GlovesSVG";
 import custom from "../assets/custom.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setGloveColors } from "../store/features/gloveSlice";
+import { setGloveColors } from "../store/features/colorSlice";
 import players from "../data/players.json";
 const Team44Page = () => {
   const navigate = useNavigate();

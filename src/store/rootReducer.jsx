@@ -1,11 +1,11 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import cart from "./features/cartSlice";
-import glove from "./features/gloveSlice";
+import color from "./features/colorSlice";
 
 const createReducer = () => (state, action) => {
   const combinedReducer = combineReducers({
     cart,
-    glove,
+    color,
   });
 
   return combinedReducer(state, action);

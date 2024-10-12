@@ -18,17 +18,29 @@ const initialState = {
     logo: "black",
     laces: "black",
   },
+  batColors: {
+    base: "purple",
+    modelGraphic: "green",
+    handleGraphic: "darkgray",
+    grip: "blue",
+    gripUp: "lightgray",
+    brand: "red",
+    logo: "blue",
+  },
 };
 
-const gloveSlice = createSlice({
-  name: "glove",
+const colorSlice = createSlice({
+  name: "color",
   initialState,
   reducers: {
     setGloveColors(state, action) {
       state.gloveColors = { ...state.gloveColors, ...action.payload };
     },
+    setBatColors(state, action) {
+      state.batColors = { ...state.batColors, ...action.payload };
+    },
   },
 });
 
-export const { setGloveColors } = gloveSlice.actions;
-export default gloveSlice.reducer;
+export const { setGloveColors, setBatColors } = colorSlice.actions;
+export default colorSlice.reducer;

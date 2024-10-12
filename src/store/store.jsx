@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cart from "./features/cartSlice";
-import glove from "./features/gloveSlice";
+import color from "./features/colorSlice";
 
 const store = configureStore({
   reducer: {
     cart,
-    glove,
+    color,
   },
 });
 export default store;

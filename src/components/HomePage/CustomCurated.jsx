@@ -8,7 +8,7 @@ import redLine from "../../assets/redLine.svg";
 import GlovesSVG from "../BuilderPage/CustomGloves/GlovesSVG";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setGloveColors } from "../../store/features/gloveSlice";
+import { setGloveColors } from "../../store/features/colorSlice";
 import curateds from "../../data/curateds.json";
 const CustomCurated = () => {
   const swiperRef = useRef(null);
