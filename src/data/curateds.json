@@ -1,7 +1,9 @@
 [
     {
       "title": "Duck Hunt",
+      "type":"Glove",
       "img": "curated1",
+      "link":"/builder/custom-gloves",
       "brand": "Infield / Pro 44",
       "colors": {
         "lather1": "yellow",
@@ -22,28 +24,25 @@
     },
     {
       "title": "Spring Season",
+      "link":"/builder/custom-bats",
+      "type":"Bat",
       "img": "curated2",
       "brand": "Infield / Pro 44",
       "colors": {
-        "lather1": "chocolate",
-        "lather2": "black",
-        "lather3": "black",
-        "lather4": "black",
-        "lather5": "black",
-        "lather6": "black",
-        "lather7": "black",
-        "lather8": "chocolate",
-        "web": "black",
-        "wrist": "chocolate",
-        "palm": "chocolate",
-        "binding": "black",
-        "logo": "black",
-        "laces": "chocolate"
+        "base": "darkblue",
+        "modelGraphic": "tomato",
+        "handleGraphic": "red",
+        "grip": "darkred",
+        "gripUp": "green",
+        "brand": "white",
+        "logo": "white"
       }
     },
     {
       "title": "Lightning",
+      "type":"Glove",
       "img": "curated3",
+      "link":"/builder/custom-gloves",
       "brand": "Infield / Pro 44",
       "colors": {
         "lather1": "MidnightBlue",
@@ -64,7 +63,9 @@
     },
     {
       "title": "Cherry Blossom",
+      "type":"Glove",
       "img": "curated4",
+      "link":"/builder/custom-gloves",
       "brand": "Alloy XP BBCOR",
       "colors": {
         "lather1": "black",
@@ -85,28 +86,25 @@
     },
     {
       "title": "The Jocker",
-      "img": "curated5",
-      "brand": "Alloy XP BBCOR",
+      "link":"/builder/custom-bats",
+      "type":"Bat",
+      "img": "curated2",
+      "brand": "Infield / Pro 44",
       "colors": {
-        "lather1": "wheat",
-        "lather2": "wheat",
-        "lather3": "wheat",
-        "lather4": "wheat",
-        "lather5": "wheat",
-        "lather6": "wheat",
-        "lather7": "wheat",
-        "lather8": "wheat",
-        "web": "wheat",
-        "wrist": "wheat",
-        "palm": "wheat",
-        "binding": "darkblue",
-        "logo": "darkblue",
-        "laces": "darkblue"
+        "base": "tan",
+        "modelGraphic": "tomato",
+        "handleGraphic": "black",
+        "grip": "black",
+        "gripUp": "darkblue",
+        "brand": "red",
+        "logo": "black"
       }
     },
     {
       "title": "The Bachelor",
+      "type":"Glove",
       "img": "curated6",
+      "link":"/builder/custom-gloves",
       "brand": "Infield / Pro 44",
       "colors": {
         "lather1": "black",
@@ -127,28 +125,25 @@
     },
     {
       "title": "The Mint",
-      "img": "curated8",
+      "link":"/builder/custom-bats",
+      "type":"Bat",
+      "img": "curated2",
       "brand": "Infield / Pro 44",
       "colors": {
-        "lather1": "yellow",
-        "lather2": "yellow",
-        "lather3": "DarkTurquoise",
-        "lather4": "yellow",
-        "lather5": "DarkTurquoise",
-        "lather6": "yellow",
-        "lather7": "DarkTurquoise",
-        "lather8": "yellow",
-        "web": "DarkTurquoise",
-        "wrist": "DarkTurquoise",
-        "palm": "DarkTurquoise",
-        "binding": "DarkTurquoise",
-        "logo": "yellow",
-        "laces": "DarkTurquoise"
+        "base": "black",
+        "modelGraphic": "tomato",
+        "handleGraphic": "red",
+        "grip": "darkred",
+        "gripUp": "darkblue",
+        "brand": "white",
+        "logo": "white"
       }
     },
     {
       "title": "City Connect",
+      "type":"Glove",
       "img": "curated9",
+      "link":"/builder/custom-gloves",
       "brand": "Alloy XP BBCOR",
       "colors": {
         "lather1": "DarkTurquoise",
@@ -169,7 +164,9 @@
     },
     {
       "title": "Faith",
+      "type":"Glove",
       "img": "curated10",
+      "link":"/builder/custom-gloves",
       "brand": "Alloy XP BBCOR",
       "colors": {
         "lather1": "wheat",

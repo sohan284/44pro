@@ -8,17 +8,22 @@ import redLine from "../../assets/redLine.svg";
 import GlovesSVG from "../BuilderPage/CustomGloves/GlovesSVG";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setGloveColors } from "../../store/features/colorSlice";
+import { setBatColors, setGloveColors } from "../../store/features/colorSlice";
 import curateds from "../../data/curateds.json";
+import BatsSVG from "../BuilderPage/CustomBats/BatsSVG";
 const CustomCurated = () => {
   const swiperRef = useRef(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
-  const handleClick = (colors) => {
-    dispatch(setGloveColors(colors));
-    navigate("/builder/custom-gloves");
+  const handleClick = (colors, link) => {
+    if (
+      link === "/builder/custom-bats"
+        ? dispatch(setBatColors(colors))
+        : dispatch(setGloveColors(colors))
+    )
+      navigate(link);
   };
   return (
     <div
@@ -106,14 +111,22 @@ const CustomCurated = () => {
           <SwiperSlide key={curated.title}>
             <div className="bg-white p-5">
               {/* <img src={curated.img} alt={curated.title} /> */}
-              <GlovesSVG color={curated.colors} />
+              {curated.type === "Glove" ? (
+                <div className="h-[350px]">
+                  <GlovesSVG color={curated.colors} />
+                </div>
+              ) : (
+                <div className="h-[350px]">
+                  <BatsSVG color={curated.colors} />
+                </div>
+              )}
               <div className="flex justify-between">
                 <div>
                   <p>{curated.brand}</p>
                   <p className="text-xl font-semibold">{curated.title}</p>
                 </div>
                 <CustomButton
-                  handleClick={() => handleClick(curated.colors)}
+                  handleClick={() => handleClick(curated.colors, curated.link)}
                   title="Custom"
                   bgColor="bg-zinc-800 text-white"
                 />

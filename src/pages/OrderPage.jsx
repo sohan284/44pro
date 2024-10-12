@@ -11,6 +11,7 @@ import {
   TableRow,
 } from "@mui/material";
 import GlovesSVG from "../components/BuilderPage/CustomGloves/GlovesSVG";
+import BatsSVG from "../components/BuilderPage/CustomBats/BatsSVG";
 
 const OrderPage = () => {
   const token = localStorage.getItem("token");
@@ -63,7 +64,11 @@ const OrderPage = () => {
                     <TableRow key={item._id}>
                       <TableCell>
                         <div className="lg:w-[30%] w-[120%] md:w-[50%]">
-                          <GlovesSVG color={item.colors} />
+                          {item.title === "Custom Gloves" ? (
+                            <GlovesSVG color={item.colors} />
+                          ) : (
+                            <BatsSVG color={item.colors} />
+                          )}
                         </div>
                       </TableCell>
                       <TableCell>{item.title}</TableCell>
