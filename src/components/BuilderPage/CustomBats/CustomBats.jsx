@@ -45,12 +45,10 @@ const CustomBats = () => {
     { name: "Logo Color", key: "logo" },
   ];
 
-  const sizes = ['11"', '11.5"', '12"', '14"'];
+  const sizes = ['31"', '31.5"', '32"', '33"', '33.5"'];
   const personalizeOptions = [
-    "44 Logo",
-    "Custom Number",
-    "Graphic",
-    "Premium Graphic (+$10)",
+    "Right Handed Hitter",
+    "Left Handed Hitter ($20+)",
   ];
 
   const handleSizeChange = (size) => {
@@ -63,10 +61,10 @@ const CustomBats = () => {
 
   useEffect(() => {
     // Update price based on selected personalization
-    if (selectedPersonalize === "Premium Graphic (+$10)") {
-      setPrice(259); // Base price + additional cost
+    if (selectedPersonalize === "Right Handed Hitter") {
+      setPrice(149);
     } else {
-      setPrice(249);
+      setPrice(169);
     }
   }, [selectedPersonalize]);
 
