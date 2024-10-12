@@ -19,13 +19,13 @@ const initialState = {
     laces: "black",
   },
   batColors: {
-    base: "purple",
-    modelGraphic: "green",
-    handleGraphic: "darkgray",
-    grip: "blue",
-    gripUp: "lightgray",
-    brand: "red",
-    logo: "blue",
+    base: "darkblue",
+    modelGraphic: "tomato",
+    handleGraphic: "red",
+    grip: "darkred",
+    gripUp: "green",
+    brand: "white",
+    logo: "white",
   },
 };
 

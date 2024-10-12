@@ -195,7 +195,12 @@ function Navigation() {
                   >
                     Custom Gloves
                   </li>
-                  <li className="hover:opacity-80">Custom Bats</li>
+                  <li
+                    onClick={() => handleNavigate("/builder/custom-bats")}
+                    className="hover:opacity-80"
+                  >
+                    Custom Bats
+                  </li>
                   <li className="hover:opacity-80">Custom Batting Gloves</li>
                   <li className="hover:opacity-80">Custom Guards</li>
                 </ul>

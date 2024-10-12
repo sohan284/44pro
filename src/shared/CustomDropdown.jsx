@@ -5,23 +5,29 @@ import custom3 from "../assets/custom3.png";
 import custom4 from "../assets/custom4.png";
 import custom from "../assets/custom.png";
 import { IoIosArrowDown } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 const CustomDropdown = () => {
+  const navigate = useNavigate();
   const cardsData = [
     {
       title: "Custom Gloves",
       img: custom1,
+      link: "/builder/custom-gloves",
     },
     {
       title: "Custom Bats",
       img: custom2,
+      link: "/builder/custom-bats",
     },
     {
       title: "Custom Batting Gloves",
       img: custom3,
+      link: "/builder/custom-gloves",
     },
     {
       title: "Custom Guards",
       img: custom4,
+      link: "/builder/custom-gloves",
     },
   ];
 
@@ -29,6 +35,7 @@ const CustomDropdown = () => {
     <div className="flex bg-[#e0e0e0] flex-wrap rounded-lg p-4">
       {cardsData.map((card, index) => (
         <Card
+          onClick={() => navigate(card.link)}
           key={index}
           style={{
             // width: 250,
