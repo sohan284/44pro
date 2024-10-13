@@ -20,8 +20,10 @@ import gaurd4 from "../../assets/gaurd4.jpeg";
 import experiencebg from "../../assets/experienceBg.jpg";
 import arrow from "../../assets/arrow.svg";
 import CustomButton from "../../shared/CustomButton";
+import { useNavigate } from "react-router-dom";
 
 function CustomExperience() {
+  const navigate = useNavigate();
   // Slider settings
   const settings = {
     dots: true,
@@ -73,6 +75,7 @@ function CustomExperience() {
                 </div>
               </Slider>
               <CustomButton
+                handleClick={() => navigate("/builder")}
                 title="Gloves"
                 bgColor="bg-zinc-800"
                 txColor="text-white"
@@ -96,6 +99,7 @@ function CustomExperience() {
                 </div>
               </Slider>
               <CustomButton
+                handleClick={() => navigate("/builder")}
                 title="Bats"
                 bgColor="bg-zinc-800"
                 txColor="text-white"
@@ -119,6 +123,7 @@ function CustomExperience() {
                 </div>
               </Slider>
               <CustomButton
+                handleClick={() => navigate("/builder")}
                 title="Batting Gloves"
                 bgColor="bg-zinc-800"
                 txColor="text-white"
@@ -142,6 +147,7 @@ function CustomExperience() {
                 </div>
               </Slider>
               <CustomButton
+                handleClick={() => navigate("/builder")}
                 title="Gaurds"
                 bgColor="bg-zinc-800"
                 txColor="text-white"
